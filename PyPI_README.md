@@ -69,11 +69,11 @@ print(result)
 The SDK provides various services to interact with the API.
 
 <details> 
-<summary>Below is a list of all available services with links to their detailed documentation:</summary>
+<summary>Below is a list of all available services:</summary>
 
-| Name                                                         |
-| :----------------------------------------------------------- |
-| [MetadataService](documentation/services/MetadataService.md) |
+| Name     |
+| :------- |
+| metadata |
 
 </details>
 
@@ -82,13 +82,13 @@ The SDK provides various services to interact with the API.
 The SDK includes several models that represent the data structures used in API requests and responses. These models help in organizing and managing the data efficiently.
 
 <details> 
-<summary>Below is a list of all available models with links to their detailed documentation:</summary>
+<summary>Below is a list of all available models:</summary>
 
-| Name                                                               | Description                                              |
-| :----------------------------------------------------------------- | :------------------------------------------------------- |
-| [ReallocateContainer](documentation/models/ReallocateContainer.md) | Represents a request to reallocate a container.          |
-| [ContainerStatus](documentation/models/ContainerStatus.md)         | Represents the health statuses of the running container. |
-| [ContainerToken](documentation/models/ContainerToken.md)           | Represents the identity token of the running container.  |
+| Name                | Description                                              |
+| :------------------ | :------------------------------------------------------- |
+| ReallocateContainer | Represents a request to reallocate a container.          |
+| ContainerStatus     | Represents the health statuses of the running container. |
+| ContainerToken      | Represents the identity token of the running container.  |
 
 </details>
 
