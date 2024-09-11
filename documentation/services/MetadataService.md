@@ -17,9 +17,9 @@ Reallocates the running container to another Salad Node
 
 **Parameters**
 
-| Name         | Type                                                    | Required | Description       |
-| :----------- | :------------------------------------------------------ | :------- | :---------------- |
-| request_body | [ReallocateContainer](../models/ReallocateContainer.md) | ✅       | The request body. |
+| Name         | Type                                                      | Required | Description       |
+| :----------- | :-------------------------------------------------------- | :------- | :---------------- |
+| request_body | `[ReallocateContainer](../models/ReallocateContainer.md)` | ✅       | The request body. |
 
 **Example Usage Code Snippet**
 
@@ -33,7 +33,7 @@ sdk = SaladCloudImdsSdk(
 )
 
 request_body = ReallocateContainer(
-    reason="commodo"
+    reason="laborum culpa"
 )
 
 result = sdk.metadata.reallocate_container(request_body=request_body)
