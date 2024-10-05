@@ -1,10 +1,10 @@
 {
-  "liblabVersion": "2.4.0",
-  "date": "2024-09-17T04:36:05.362Z",
+  "liblabVersion": "2.5.1",
+  "date": "2024-10-05T04:00:40.746Z",
   "config": {
     "apiId": 1126,
     "sdkName": "salad-cloud-imds-sdk",
-    "sdkVersion": "0.9.0-alpha.3",
+    "sdkVersion": "0.9.0-alpha.4",
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "languages": ["python"],
@@ -33,7 +33,7 @@
         "githubRepoName": "salad-cloud-imds-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
+        "sdkVersion": "0.9.0-alpha.4",
         "targetBranch": "main"
       },
       "java": {
@@ -57,11 +57,11 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-java",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
+        "sdkVersion": "0.9.0-alpha.4",
         "targetBranch": "main"
       },
       "python": {
-        "alwaysInitializeOptionals": true,
+        "alwaysInitializeOptionals": false,
         "classifiers": [
           "Development Status :: 3 - Alpha",
           "Intended Audience :: Developers",
@@ -100,7 +100,7 @@
         "githubRepoName": "salad-cloud-imds-sdk-python",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
+        "sdkVersion": "0.9.0-alpha.4",
         "targetBranch": "main"
       },
       "typescript": {
@@ -123,8 +123,9 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
-        "targetBranch": "main"
+        "sdkVersion": "0.9.0-alpha.4",
+        "targetBranch": "main",
+        "generateEnumAs": "enum"
       }
     },
     "publishing": {
@@ -155,11 +156,11 @@
     },
     "multiTenant": true,
     "hooksLocation": {
-      "bucketKey": "7207/hooks.zip",
+      "bucketKey": "7538/hooks.zip",
       "bucketName": "prod-liblab-api-stack-hooks"
     },
     "includeWatermark": false,
-    "alwaysInitializeOptionals": true,
+    "alwaysInitializeOptionals": false,
     "classifiers": [
       "Development Status :: 3 - Alpha",
       "Intended Audience :: Developers",
@@ -211,7 +212,7 @@
     "httpLibrary": {
       "name": "axios",
       "packages": {
-        "axios": "^1.7.4"
+        "axios": "^1.7.7"
       },
       "languages": ["typescript"]
     },

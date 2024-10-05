@@ -1,21 +1,36 @@
+from typing import Union
 from .services.metadata import MetadataService
 from .net.environment import Environment
 
 
 class SaladCloudImdsSdk:
-    def __init__(self, base_url: str = Environment.DEFAULT.value, timeout: int = 60000):
+    def __init__(
+        self,
+        base_url: Union[Environment, str] = Environment.DEFAULT,
+        timeout: int = 60000,
+    ):
         """
         Initializes SaladCloudImdsSdk the SDK class.
         """
 
-        self.metadata = MetadataService(base_url=base_url)
+        self._base_url = (
+            base_url.value if isinstance(base_url, Environment) else base_url
+        )
+        self.metadata = MetadataService(base_url=self._base_url)
         self.set_timeout(timeout)
 
-    def set_base_url(self, base_url):
+    def set_base_url(self, base_url: Union[Environment, str]):
         """
         Sets the base URL for the entire SDK.
+
+        :param Union[Environment, str] base_url: The base URL to be set.
+        :return: The SDK instance.
         """
-        self.metadata.set_base_url(base_url)
+        self._base_url = (
+            base_url.value if isinstance(base_url, Environment) else base_url
+        )
+
+        self.metadata.set_base_url(self._base_url)
 
         return self
 
