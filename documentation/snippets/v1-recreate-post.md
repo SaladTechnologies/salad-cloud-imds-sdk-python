@@ -5,7 +5,7 @@ sdk = SaladCloudImdsSdk(
     timeout=10000
 )
 
-result = sdk.metadata.get_status()
+result = sdk.metadata.recreate()
 
 print(result)
 
