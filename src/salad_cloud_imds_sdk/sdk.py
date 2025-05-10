@@ -5,9 +5,7 @@ from .net.environment import Environment
 
 class SaladCloudImdsSdk:
     def __init__(
-        self,
-        base_url: Union[Environment, str] = Environment.DEFAULT,
-        timeout: int = 60000,
+        self, base_url: Union[Environment, str, None] = None, timeout: int = 60000
     ):
         """
         Initializes SaladCloudImdsSdk the SDK class.

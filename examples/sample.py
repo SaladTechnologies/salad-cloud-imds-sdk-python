@@ -1,7 +1,7 @@
-from salad_cloud_imds_sdk import SaladCloudImdsSdk, Environment
+from salad_cloud_imds_sdk import SaladCloudImdsSdk
 
-sdk = SaladCloudImdsSdk(base_url=Environment.DEFAULT.value, timeout=10000)
+sdk = SaladCloudImdsSdk(timeout=10000)
 
-result = sdk.metadata.get_container_status()
+result = sdk.metadata.get_deletion_cost()
 
 print(result)

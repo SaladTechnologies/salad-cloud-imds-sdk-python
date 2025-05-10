@@ -1,7 +1,8 @@
-from typing import Any, Dict, Generator
+from typing import Any, Dict, Tuple, Generator
 from enum import Enum
 
 from .default_headers import DefaultHeaders, DefaultHeadersKeys
+
 from ...net.transport.request import Request
 from ...net.request_chain.request_chain import RequestChain
 from ...net.request_chain.handlers.hook_handler import HookHandler
@@ -51,20 +52,35 @@ class BaseService:
 
         return self
 
-    def send_request(self, request: Request) -> dict:
+    def send_request(self, request: Request) -> Tuple[Dict, int, str]:
         """
         Sends the given request.
 
         :param Request request: The request to be sent.
         :return: The response data.
-        :rtype: dict
+        :rtype: Tuple[Dict, int, str]
         """
         response = self._request_handler.send(request)
-        return response.body
+        return (
+            response.body,
+            response.status,
+            response.headers.get("Content-Type", "").lower(),
+        )
 
-    def stream_request(self, request: Request) -> Generator[dict, None, None]:
+    def stream_request(self, request: Request) -> Generator[Dict, None, None]:
+        """
+        Streams the given request.
+
+        :param Request request: The request to be streamed.
+        :return: A generator of the response data.
+        :rtype: Generator[Dict, None, None]
+        """
         for response in self._request_handler.stream(request):
-            yield response.body
+            yield (
+                response.body,
+                response.status,
+                response.headers.get("Content-Type", "").lower(),
+            )
 
     def get_default_headers(self) -> list:
         """
@@ -84,8 +100,8 @@ class BaseService:
         """
         return (
             RequestChain()
-            .add_handler(RetryHandler())
             .add_handler(HookHandler())
+            .add_handler(RetryHandler())
             .add_handler(HttpHandler(self._timeout))
         )
 
