@@ -1,6 +1,6 @@
 ```python
 from salad_cloud_imds_sdk import SaladCloudImdsSdk
-from salad_cloud_imds_sdk.models import ReallocatePrototype
+from salad_cloud_imds_sdk.models import ReallocatePrototype, Metadata
 
 sdk = SaladCloudImdsSdk(
     timeout=10000
@@ -10,7 +10,10 @@ request_body = ReallocatePrototype(
     reason="Insufficient VRAM"
 )
 
-result = sdk.metadata.reallocate(request_body=request_body)
+result = sdk.metadata.reallocate(
+    request_body=request_body,
+    metadata="true"
+)
 
 print(result)
 

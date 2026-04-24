@@ -1,4 +1,5 @@
 from .deletion_cost import DeletionCost
+from .metadata import Metadata
 from .reallocate_prototype import ReallocatePrototype
 from .status import Status
 from .token import Token
