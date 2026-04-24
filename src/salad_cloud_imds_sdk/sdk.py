@@ -4,6 +4,12 @@ from .net.environment import Environment
 
 
 class SaladCloudImdsSdk:
+    """
+    Main SDK client class for SaladCloudImdsSdk.
+    Provides centralized configuration and access to all service endpoints.
+    Supports authentication, environment management, and global timeout settings.
+    """
+
     def __init__(
         self, base_url: Union[Environment, str, None] = None, timeout: int = 60000
     ):

@@ -19,6 +19,12 @@ Gets the deletion cost of the current container instance
 - HTTP Method: `GET`
 - Endpoint: `/v1/deletion-cost`
 
+**Parameters**
+
+| Name     | Type                              | Required | Description                                         |
+| :------- | :-------------------------------- | :------- | :-------------------------------------------------- |
+| metadata | [Metadata](../models/Metadata.md) | ✅       | A custom request header required by all operations. |
+
 **Return Type**
 
 `DeletionCost`
@@ -27,12 +33,13 @@ Gets the deletion cost of the current container instance
 
 ```python
 from salad_cloud_imds_sdk import SaladCloudImdsSdk
+from salad_cloud_imds_sdk.models import Metadata
 
 sdk = SaladCloudImdsSdk(
     timeout=10000
 )
 
-result = sdk.metadata.get_deletion_cost()
+result = sdk.metadata.get_deletion_cost(metadata="true")
 
 print(result)
 ```
@@ -46,19 +53,20 @@ Replaces the deletion cost of the current container instance
 
 **Parameters**
 
-| Name         | Type                                      | Required | Description       |
-| :----------- | :---------------------------------------- | :------- | :---------------- |
-| request_body | [DeletionCost](../models/DeletionCost.md) | ✅       | The request body. |
+| Name         | Type                                      | Required | Description                                         |
+| :----------- | :---------------------------------------- | :------- | :-------------------------------------------------- |
+| request_body | [DeletionCost](../models/DeletionCost.md) | ✅       | The request body.                                   |
+| metadata     | [Metadata](../models/Metadata.md)         | ✅       | A custom request header required by all operations. |
 
 **Return Type**
 
-`DeletionCost`
+`SaladCloudImdsError`
 
 **Example Usage Code Snippet**
 
 ```python
 from salad_cloud_imds_sdk import SaladCloudImdsSdk
-from salad_cloud_imds_sdk.models import DeletionCost
+from salad_cloud_imds_sdk.models import DeletionCost, Metadata
 
 sdk = SaladCloudImdsSdk(
     timeout=10000
@@ -68,7 +76,10 @@ request_body = DeletionCost(
     deletion_cost=100
 )
 
-result = sdk.metadata.replace_deletion_cost(request_body=request_body)
+result = sdk.metadata.replace_deletion_cost(
+    request_body=request_body,
+    metadata="true"
+)
 
 print(result)
 ```
@@ -82,9 +93,10 @@ Reallocates the current container instance to another SaladCloud node
 
 **Parameters**
 
-| Name         | Type                                                    | Required | Description       |
-| :----------- | :------------------------------------------------------ | :------- | :---------------- |
-| request_body | [ReallocatePrototype](../models/ReallocatePrototype.md) | ✅       | The request body. |
+| Name         | Type                                                    | Required | Description                                         |
+| :----------- | :------------------------------------------------------ | :------- | :-------------------------------------------------- |
+| request_body | [ReallocatePrototype](../models/ReallocatePrototype.md) | ✅       | The request body.                                   |
+| metadata     | [Metadata](../models/Metadata.md)                       | ✅       | A custom request header required by all operations. |
 
 **Return Type**
 
@@ -94,7 +106,7 @@ Reallocates the current container instance to another SaladCloud node
 
 ```python
 from salad_cloud_imds_sdk import SaladCloudImdsSdk
-from salad_cloud_imds_sdk.models import ReallocatePrototype
+from salad_cloud_imds_sdk.models import ReallocatePrototype, Metadata
 
 sdk = SaladCloudImdsSdk(
     timeout=10000
@@ -104,7 +116,10 @@ request_body = ReallocatePrototype(
     reason="Insufficient VRAM"
 )
 
-result = sdk.metadata.reallocate(request_body=request_body)
+result = sdk.metadata.reallocate(
+    request_body=request_body,
+    metadata="true"
+)
 
 print(result)
 ```
@@ -116,6 +131,12 @@ Recreates the current container instance on the same SaladCloud node
 - HTTP Method: `POST`
 - Endpoint: `/v1/recreate`
 
+**Parameters**
+
+| Name     | Type                              | Required | Description                                         |
+| :------- | :-------------------------------- | :------- | :-------------------------------------------------- |
+| metadata | [Metadata](../models/Metadata.md) | ✅       | A custom request header required by all operations. |
+
 **Return Type**
 
 `SaladCloudImdsError`
@@ -124,12 +145,13 @@ Recreates the current container instance on the same SaladCloud node
 
 ```python
 from salad_cloud_imds_sdk import SaladCloudImdsSdk
+from salad_cloud_imds_sdk.models import Metadata
 
 sdk = SaladCloudImdsSdk(
     timeout=10000
 )
 
-result = sdk.metadata.recreate()
+result = sdk.metadata.recreate(metadata="true")
 
 print(result)
 ```
@@ -141,6 +163,12 @@ Restarts the current container instance on the same SaladCloud node
 - HTTP Method: `POST`
 - Endpoint: `/v1/restart`
 
+**Parameters**
+
+| Name     | Type                              | Required | Description                                         |
+| :------- | :-------------------------------- | :------- | :-------------------------------------------------- |
+| metadata | [Metadata](../models/Metadata.md) | ✅       | A custom request header required by all operations. |
+
 **Return Type**
 
 `SaladCloudImdsError`
@@ -149,12 +177,13 @@ Restarts the current container instance on the same SaladCloud node
 
 ```python
 from salad_cloud_imds_sdk import SaladCloudImdsSdk
+from salad_cloud_imds_sdk.models import Metadata
 
 sdk = SaladCloudImdsSdk(
     timeout=10000
 )
 
-result = sdk.metadata.restart()
+result = sdk.metadata.restart(metadata="true")
 
 print(result)
 ```
@@ -166,6 +195,12 @@ Gets the health statuses of the current container instance
 - HTTP Method: `GET`
 - Endpoint: `/v1/status`
 
+**Parameters**
+
+| Name     | Type                              | Required | Description                                         |
+| :------- | :-------------------------------- | :------- | :-------------------------------------------------- |
+| metadata | [Metadata](../models/Metadata.md) | ✅       | A custom request header required by all operations. |
+
 **Return Type**
 
 `Status`
@@ -174,12 +209,13 @@ Gets the health statuses of the current container instance
 
 ```python
 from salad_cloud_imds_sdk import SaladCloudImdsSdk
+from salad_cloud_imds_sdk.models import Metadata
 
 sdk = SaladCloudImdsSdk(
     timeout=10000
 )
 
-result = sdk.metadata.get_status()
+result = sdk.metadata.get_status(metadata="true")
 
 print(result)
 ```
@@ -191,6 +227,12 @@ Gets the identity token of the current container instance
 - HTTP Method: `GET`
 - Endpoint: `/v1/token`
 
+**Parameters**
+
+| Name     | Type                              | Required | Description                                         |
+| :------- | :-------------------------------- | :------- | :-------------------------------------------------- |
+| metadata | [Metadata](../models/Metadata.md) | ✅       | A custom request header required by all operations. |
+
 **Return Type**
 
 `Token`
@@ -199,12 +241,13 @@ Gets the identity token of the current container instance
 
 ```python
 from salad_cloud_imds_sdk import SaladCloudImdsSdk
+from salad_cloud_imds_sdk.models import Metadata
 
 sdk = SaladCloudImdsSdk(
     timeout=10000
 )
 
-result = sdk.metadata.get_token()
+result = sdk.metadata.get_token(metadata="true")
 
 print(result)
 ```
